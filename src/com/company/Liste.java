@@ -1,24 +1,33 @@
 package com.company;
 
+import javax.swing.text.StyledEditorKit;
+
 public class Liste {
     Node head = null;
     Node tail = null;
 
-public Node InsertFromHead(Node n)
+
+    public boolean isEmpty(){
+        if(head == null ){
+            return true;
+        }else
+            return false;
+    }
+public Node InsertFromHead(String s)
 {
-    if(head == tail){
-        head = n;
-        tail =n ;
+    Node node = new Node(s);
+
+
+    if(isEmpty()){
+        head = node;
+        tail = node;
         return head;
     }
- head = n;
- tail = n;
+    head.previous =node;
+    node.next = head;
+    head = node;
 
- head.previous =n;
- n.next = head;
- head =n;
-
-    return n;
+    return head;
 }
 
 
