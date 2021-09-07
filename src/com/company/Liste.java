@@ -6,6 +6,11 @@ public class Liste {
 
 public Node InsertFromHead(Node n)
 {
+    if(head == tail){
+        head = n;
+        tail =n ;
+        return head;
+    }
  head = n;
  tail = n;
 
