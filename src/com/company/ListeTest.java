@@ -4,12 +4,14 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class ListeTest {
+class ListeTest
+{
 
     Liste liste = new Liste();
 
     @org.junit.jupiter.api.Test
-    void isEmpty() {
+    void isEmpty()
+    {
         assertEquals(true, liste.isEmpty());
         liste.InsertFromHead("Victor");
         assertEquals(false, liste.isEmpty());
@@ -17,12 +19,14 @@ class ListeTest {
 
 
     @org.junit.jupiter.api.Test
-    void insertFromHead() {
+    void insertFromHead()
+    {
         assertEquals("1", liste.InsertFromHead("1").data);
     }
 
     @Test
-    void printListFromHead() {
+    void printListFromHead()
+    {
         liste.InsertFromHead("1");
         liste.InsertFromHead("2");
         liste.InsertFromHead("3");
@@ -31,20 +35,32 @@ class ListeTest {
     }
 
     @Test
-    void insertFromTail() {
+    void insertFromTail()
+    {
 
 
-
-assertEquals("111",liste.insertFromTail("111").data);
+        assertEquals("111", liste.insertFromTail("111").data);
     }
 
     @Test
-    void printFromTail() {
+    void printFromTail()
+    {
 
         liste.insertFromTail("1");
         liste.insertFromTail("2");
         liste.insertFromTail("3");
 
-        assertEquals("123",liste.printFromTail());
+        assertEquals("123", liste.printFromTail());
+    }
+
+    @Test
+    void findMyNode()
+    {
+        Node node = new Node("1");
+        liste.InsertFromHead("1");
+
+        assertEquals(node.data, liste.fineMyNode("1").data);
+
+
     }
 }
