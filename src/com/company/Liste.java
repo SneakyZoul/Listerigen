@@ -146,6 +146,8 @@ public class Liste
             head = new Node(s);
         } else
         {
+            if(num == 1){
+                InsertFromHead(s);}
             Node newNode = new Node(s);
 
             Node ptr = tail;
