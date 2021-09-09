@@ -73,10 +73,25 @@ class ListeTest
         liste.InsertFromHead("2");
         liste.InsertFromHead("3");
 
-        assertEquals("2",liste.removeFromNode("2").data);
-        assertEquals("31",liste.printFromTail());
+        assertEquals("2", liste.removeFromNode("2").data);
+        assertEquals("31", liste.printFromTail());
 
 
+    }
+
+    @Test
+    void addNode()
+    {
+
+        Node n = new Node("1");
+    liste.InsertFromHead("1");
+    liste.InsertFromHead("2");
+    liste.InsertFromHead("3");
+    liste.InsertFromHead("4");
+
+    liste.addNode("5");
+
+    assertEquals("12534",liste.printFromHead());
 
     }
 }

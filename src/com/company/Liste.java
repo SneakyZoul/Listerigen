@@ -44,7 +44,7 @@ public class Liste
 
         while (n != null)
         {
-            res =n.data+ res  ;
+            res = n.data + res;
             n = n.next;
 
         }
@@ -132,5 +132,52 @@ public class Liste
         }
         return null;
     }
+
+    public static Node getNode(String s)
+    {
+        return new Node(s);
+    }
+
+        public void addNode(String s)
+        {
+
+            if(isEmpty())
+            {
+                head = new Node(s);
+            }
+
+            else
+            {
+                Node newNode = new Node(s);
+
+                Node ptr = tail;
+                Node ptr2 = head;
+                int len = 0;
+
+                while(ptr != null)  // get length of list
+                {
+                    len++;
+                    ptr = ptr.previous;
+                }
+
+                int count = ((len % 2) == 0) ? (len/2) : (len + 1) / 2; // find middle of list
+                ptr = tail;  // change ptr back to tail
+
+
+                while (count-- > 1)
+                {
+                    ptr = ptr.previous;
+                    ptr2 = ptr2.next;
+                }
+
+                newNode.previous = ptr.previous;
+                ptr.previous = newNode;
+                newNode.next = ptr2.next;
+                ptr2.next = newNode;
+            }
+
+        }
+
 }
+
 
