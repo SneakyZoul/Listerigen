@@ -83,13 +83,13 @@ class ListeTest
     void addNode()
     {
 
-        Node n = new Node("1");
+
     liste.InsertFromHead("1");
     liste.InsertFromHead("2");
     liste.InsertFromHead("3");
     liste.InsertFromHead("4");
 
-    liste.addNode("5");
+    liste.addNode("5",4);
 
     assertEquals("12534",liste.printFromHead());
 

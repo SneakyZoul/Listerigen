@@ -138,45 +138,53 @@ public class Liste
         return new Node(s);
     }
 
-        public void addNode(String s)
+    public void addNode(String s, int num)
+    {
+
+        if (isEmpty())
         {
+            head = new Node(s);
+        } else
+        {
+            Node newNode = new Node(s);
 
-            if(isEmpty())
+            Node ptr = tail;
+            Node ptr2 = head;
+            int len = 0;
+
+            while (ptr != null)  // get length of list
             {
-                head = new Node(s);
+                len++;
+                ptr = ptr.previous;
             }
 
-            else
+            ptr = tail;  // change ptr back to tail
+
+            if (num > len + 1)
             {
-                Node newNode = new Node(s);
-
-                Node ptr = tail;
-                Node ptr2 = head;
-                int len = 0;
-
-                while(ptr != null)  // get length of list
-                {
-                    len++;
-                    ptr = ptr.previous;
-                }
-
-                int count = ((len % 2) == 0) ? (len/2) : (len + 1) / 2; // find middle of list
-                ptr = tail;  // change ptr back to tail
-
-
-                while (count-- > 1)
-                {
-                    ptr = ptr.previous;
-                    ptr2 = ptr2.next;
-                }
-
-                newNode.previous = ptr.previous;
-                ptr.previous = newNode;
-                newNode.next = ptr2.next;
-                ptr2.next = newNode;
+                System.out.println("Placement is longer then the list");
+                System.out.println("the number is put ind the end of the list ");
+                num = len + 1;
+            }
+            if (num > 1)
+            {
+                System.out.println("Erro, too small of a number");
+                num = 1;
             }
 
+            while ((num--) - 1 > 1)
+            {
+                ptr = ptr.previous;
+                ptr2 = ptr2.next;
+            }
+
+            newNode.previous = ptr.previous;
+            ptr.previous = newNode;
+            newNode.next = ptr2.next;
+            ptr2.next = newNode;
         }
+
+    }
 
 }
 
