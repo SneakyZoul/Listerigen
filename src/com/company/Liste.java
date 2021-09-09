@@ -44,7 +44,7 @@ public class Liste
 
         while (n != null)
         {
-            res = res + n.data;
+            res =n.data+ res  ;
             n = n.next;
 
         }
@@ -93,16 +93,44 @@ public class Liste
         {
             return node;
         }
-            while (node != null)
+        while (node != null)
+        {
+
+            if (node.data == s)
+            {
+                return node;
+            }
+            node = node.next;
+        }
+        return node;
+    }
+
+    public Node removeFromNode(String s)
+    {
+
+        Node node = head;
+        if (isEmpty())
+        {
+            return node;
+        }
+
+        while (node != null)
+        {
+            if (node.data == s)
             {
 
-                if (node.data == s)
-                {
-                    return node;
-                }
-                node = node.next;
+                node.previous.next = null;
+                node.next.previous = null;
+
+                node.previous.next = node.next;
+                node.next.previous = node.previous;
+
+                return node;
+
             }
-        return node;
+            node = node.next;
         }
+        return null;
     }
+}
 

@@ -57,9 +57,25 @@ class ListeTest
     void findMyNode()
     {
         Node node = new Node("1");
-        liste.InsertFromHead("1");
+        liste.InsertFromHead(node.data);
 
         assertEquals(node.data, liste.fineMyNode("1").data);
+
+
+    }
+
+    @Test
+    void removeNode()
+    {
+        Node node = new Node("1");
+
+        liste.InsertFromHead("1");
+        liste.InsertFromHead("2");
+        liste.InsertFromHead("3");
+
+        assertEquals("2",liste.removeFromNode("2").data);
+        assertEquals("31",liste.printFromTail());
+
 
 
     }
